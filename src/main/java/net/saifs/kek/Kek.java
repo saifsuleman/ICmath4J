@@ -2,6 +2,7 @@ package net.saifs.kek;
 
 import net.saifs.kek.ast.internal.ASTPrinter;
 import net.saifs.kek.ast.internal.IStatementNode;
+import net.saifs.kek.evaluator.Evaluator;
 import net.saifs.kek.lexer.Lexer;
 import net.saifs.kek.parser.Parser;
 import net.saifs.kek.token.Token;
@@ -20,7 +21,11 @@ public class Kek {
                 "fun something() {" +
                 "   thing = 4;" +
                 "   print(thing);" +
-                "}");
+                "   return 25;" +
+                "}" +
+                "" +
+                "let thing = something();" +
+                "print(thing);");
         List<Token> tokens = new ArrayList<>();
         Token token;
         while ((token = lexer.next()) != null) {
@@ -28,8 +33,7 @@ public class Kek {
         }
         Parser parser = new Parser(tokens);
         var ret = parser.parse();
-        for (IStatementNode node : ret) {
-            System.out.println(node.toString());
-        }
+        Evaluator evaluator = new Evaluator();
+        evaluator.executeProgram(ret);
     }
 }

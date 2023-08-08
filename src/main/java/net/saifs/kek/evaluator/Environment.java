@@ -6,6 +6,7 @@ import java.util.Map;
 public class Environment {
     private final Map<String, Object> values = new HashMap<>();
     private final Environment enclosing;
+    private ReturnContext returnContext = new ReturnContext();
 
     public Environment() {
         this.enclosing = null;
@@ -43,5 +44,13 @@ public class Environment {
 
     public void define(String key, Object value) {
         values.put(key, value);
+    }
+
+    public ReturnContext getReturnContext() {
+        return returnContext;
+    }
+
+    public void setReturnContext(ReturnContext returnContext) {
+        this.returnContext = returnContext;
     }
 }

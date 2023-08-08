@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfe6262-b636-420e-9caf-227d7114e2f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/ReturnContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Callable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTExpressionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTExpressionStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTFunctionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTFunctionStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTIfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTIfStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTLetStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTLetStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTReturnStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTReturnStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/ReturnContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/ReturnContext.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691433276174</updated>
-      <workItem from="1691433277269" duration="24512000" />
+      <workItem from="1691433277269" duration="27408000" />
     </task>
     <servers />
   </component>
