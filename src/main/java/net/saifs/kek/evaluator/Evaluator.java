@@ -29,7 +29,17 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
             }
         });
 
-        System.out.println(environment.get("print"));
+        this.environment.define("string", new Callable() {
+            @Override
+            public int arity() {
+                return 1;
+            }
+
+            @Override
+            public Object call(Evaluator evaluator, List<Object> arguments) {
+                return arguments.get(0).toString();
+            }
+        });
     }
 
 
@@ -48,10 +58,12 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
             for (IStatementNode statement : statements) {
                 this.execute(statement);
 
-                if (this.environment.getReturnContext().hasReturn()) {
+                ReturnContext context = environment.getReturnContext();
+                if (context != null && context.hasReturn()) {
                     break;
                 }
             }
+
         } finally {
             this.environment = previous;
         }
@@ -217,7 +229,20 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
     @Override
     public Void visitReturnStatement(ASTReturnStatement statement) {
         Object returnValue =  evaluate(statement.node());
-        this.environment.getReturnContext().setReturn(returnValue);
+        this.environment.executeReturn(returnValue);
+        return null;
+    }
+
+    @Override
+    public Void visitWhileStatement(ASTWhileStatement statement) {
+        while (isTruthy(evaluate(statement.condition()))) {
+            execute(statement.statement());
+
+            ReturnContext context = this.environment.getReturnContext();
+            if (context != null && context.hasReturn()) {
+                break;
+            }
+        }
         return null;
     }
 }

@@ -10,4 +10,13 @@ public record ASTBinaryNode(IExpressionNode left, IExpressionNode right,
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitBinary(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTBinaryNode{" +
+                "\nleft=" + left +
+                ",\n right=" + right +
+                ",\n operation=" + operation +
+                "\n}";
+    }
 }

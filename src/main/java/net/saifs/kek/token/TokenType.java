@@ -28,7 +28,10 @@ public enum TokenType {
     BANG(Pattern.compile("^!(?!=)")),
     BANG_EQ(Pattern.compile("^!=")),
     STRING(Pattern.compile("^([\"'])(.*?)\\1")),
-
+    GREATER(Pattern.compile("^>(?!=)")),
+    LESS(Pattern.compile("^<(?!=)")),
+    GREATER_EQ(Pattern.compile("^>=")),
+    LESS_EQ(Pattern.compile("^<=")),
     TRUE, FALSE, AND, OR, FUN, IF, NIL, RETURN, LET, WHILE, FOR, ELSE
     ;
 

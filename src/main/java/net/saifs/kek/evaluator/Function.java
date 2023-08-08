@@ -22,6 +22,7 @@ public class Function implements Callable {
     @Override
     public Object call(Evaluator evaluator, List<Object> arguments) {
         Environment environment = new Environment(this.closure);
+        environment.createFunctionContext();
 
         for (int i = 0; i < this.arity(); i++) {
             environment.define(statement.parameters().get(i), arguments.get(i));

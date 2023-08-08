@@ -9,4 +9,12 @@ public record ASTUnaryNode(UnaryOperation operation, IExpressionNode node) imple
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitUnary(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTUnaryNode{" +
+                "operation=" + operation +
+                ", node=" + node +
+                '}';
+    }
 }

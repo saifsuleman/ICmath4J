@@ -8,4 +8,11 @@ public record ASTValueNode(Object value) implements IExpressionNode {
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitValue(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTValueNode{" +
+                "value=" + value +
+                '}';
+    }
 }

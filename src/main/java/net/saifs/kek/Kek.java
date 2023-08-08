@@ -1,39 +1,36 @@
 package net.saifs.kek;
 
-import net.saifs.kek.ast.internal.ASTPrinter;
-import net.saifs.kek.ast.internal.IStatementNode;
 import net.saifs.kek.evaluator.Evaluator;
 import net.saifs.kek.lexer.Lexer;
 import net.saifs.kek.parser.Parser;
 import net.saifs.kek.token.Token;
-import net.saifs.kek.token.TokenType;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Objects;
 
 public class Kek {
-    public static void main(String[] args) {
-        Lexer lexer = new Lexer();
-//        lexer.read("fun thing() { if (25 != 25.2) { return 'teseitng this is a thing'; } }");
-        lexer.read("let thing = 12;" +
-                "fun something() {" +
-                "   thing = 4;" +
-                "   print(thing);" +
-                "   return 25;" +
-                "}" +
-                "" +
-                "let thing = something();" +
-                "print(thing);");
+    public static void main(String[] args) throws IOException {
+        var lexer = new Lexer();
+
+        var string = Files.readString(Path.of("test/program.kek"));
+        lexer.read(string);
+
         List<Token> tokens = new ArrayList<>();
         Token token;
         while ((token = lexer.next()) != null) {
             tokens.add(token);
         }
-        Parser parser = new Parser(tokens);
-        var ret = parser.parse();
-        Evaluator evaluator = new Evaluator();
-        evaluator.executeProgram(ret);
+
+        var parser = new Parser(tokens);
+        var statements = parser.parse();
+
+        var evaluator = new Evaluator();
+        evaluator.executeProgram(statements);
     }
 }

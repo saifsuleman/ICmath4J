@@ -4,9 +4,11 @@ import net.saifs.kek.ast.expression.*;
 import net.saifs.kek.ast.internal.IExpressionNode;
 import net.saifs.kek.ast.internal.IStatementNode;
 import net.saifs.kek.ast.internal.operation.BinaryOperation;
+import net.saifs.kek.ast.internal.operation.UnaryOperation;
 import net.saifs.kek.ast.statement.*;
 import net.saifs.kek.token.Token;
 import net.saifs.kek.token.TokenType;
+import org.w3c.dom.ls.LSParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +110,7 @@ public class Parser {
         IStatementNode thenBranch = statement();
         IStatementNode elseBranch = null;
         if (is(TokenType.ELSE)) {
+            this.eat(TokenType.ELSE);
             elseBranch = statement();
         }
         return new ASTIfStatement(condition, thenBranch, elseBranch);
@@ -121,7 +124,12 @@ public class Parser {
     }
 
     private IStatementNode whileStatement() {
-        return null;
+        eat(TokenType.WHILE);
+        eat(TokenType.LBRACKET);
+        IExpressionNode condition = expression();
+        eat(TokenType.RBRACKET);
+        IStatementNode statement = statement();
+        return new ASTWhileStatement(condition, statement);
     }
 
     private IStatementNode forStatement() {
@@ -182,7 +190,15 @@ public class Parser {
 
     // TODO
     private IExpressionNode comparison() {
-        return term();
+        IExpressionNode left = term();
+
+        while (is(TokenType.GREATER, TokenType.LESS, TokenType.GREATER_EQ, TokenType.LESS_EQ)) {
+            Token token = eat(TokenType.GREATER, TokenType.LESS, TokenType.GREATER_EQ, TokenType.LESS_EQ);
+            IExpressionNode right = term();
+            left = new ASTBinaryNode(left, right, BinaryOperation.of(token.type()));
+        }
+
+        return left;
     }
 
     private IExpressionNode term() {
@@ -222,15 +238,13 @@ public class Parser {
     }
 
     private IExpressionNode unary() {
-        IExpressionNode node = this.call();
-
-        while (this.is(TokenType.BANG, TokenType.MINUS)) {
-            Token operator = this.eat(TokenType.BANG, TokenType.MINUS);
-            IExpressionNode right = this.call();
-            node = new ASTBinaryNode(node, right, BinaryOperation.of(operator.type()));
+        if (this.is(TokenType.BANG, TokenType.MINUS)) {
+            Token operator = eat(TokenType.BANG, TokenType.MINUS);
+            IExpressionNode right = unary();
+            return new ASTUnaryNode(UnaryOperation.of(operator.type()), right);
         }
 
-        return node;
+        return call();
     }
 
     private IExpressionNode call() {

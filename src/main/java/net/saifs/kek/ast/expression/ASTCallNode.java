@@ -10,4 +10,12 @@ public record ASTCallNode(String function, List<IExpressionNode> args) implement
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitCall(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTCallNode{" +
+                "function='" + function + '\'' +
+                ", args=" + args +
+                '}';
+    }
 }

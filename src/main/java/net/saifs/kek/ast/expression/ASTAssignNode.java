@@ -8,4 +8,12 @@ public record ASTAssignNode(String identifier, IExpressionNode value) implements
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitAssignment(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTAssignNode{" +
+                "\n identifier='" + identifier + '\'' +
+                ",\n value=" + value +
+                "\n}";
+    }
 }

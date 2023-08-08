@@ -6,7 +6,7 @@ import java.util.Map;
 public class Environment {
     private final Map<String, Object> values = new HashMap<>();
     private final Environment enclosing;
-    private ReturnContext returnContext = new ReturnContext();
+    private ReturnContext returnContext = null;
 
     public Environment() {
         this.enclosing = null;
@@ -46,11 +46,27 @@ public class Environment {
         values.put(key, value);
     }
 
-    public ReturnContext getReturnContext() {
-        return returnContext;
+    public void executeReturn(Object value) {
+        ReturnContext context = this.getReturnContext();
+        if (context == null) {
+            throw new RuntimeException("no function context to return from");
+        }
+        context.setReturn(value);
     }
 
-    public void setReturnContext(ReturnContext returnContext) {
-        this.returnContext = returnContext;
+    public ReturnContext getReturnContext() {
+        if (this.returnContext != null) {
+            return this.returnContext;
+        }
+
+        if (this.enclosing == null) {
+            return null;
+        }
+
+        return this.enclosing.getReturnContext();
+    }
+
+    public void createFunctionContext() {
+        this.returnContext = new ReturnContext();
     }
 }

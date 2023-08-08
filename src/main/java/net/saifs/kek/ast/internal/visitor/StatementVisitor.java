@@ -9,4 +9,5 @@ public interface StatementVisitor<R> {
     R visitFunctionStatement(ASTFunctionStatement statement);
     R visitIfStatement(ASTIfStatement statement);
     R visitReturnStatement(ASTReturnStatement statement);
+    R visitWhileStatement(ASTWhileStatement statement);
 }

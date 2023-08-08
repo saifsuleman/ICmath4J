@@ -8,4 +8,11 @@ public record ASTIdentifierNode(String identifier) implements IExpressionNode {
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitIdentifier(this);
     }
+
+    @Override
+    public String toString() {
+        return "ASTIdentifierNode{" +
+                "identifier='" + identifier + '\'' +
+                '}';
+    }
 }

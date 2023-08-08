@@ -66,6 +66,11 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
         return "(return " + statement.node().accept(this) + ")";
     }
 
+    @Override
+    public String visitWhileStatement(ASTWhileStatement statement) {
+        return null;
+    }
+
     private String parenthesize(String name, IExpressionNode... expressions) {
         StringBuilder builder = new StringBuilder();
         builder.append("(").append(name);
