@@ -5,45 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfe6262-b636-420e-9caf-227d7114e2f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTAssignNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTBinaryNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTCallNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTIdentifierNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTUnaryNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTValueNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/IExpressionNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/IStatementNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/BinaryOperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/UnaryOperation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/ExpressionVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTBlockStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTExpressionStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTFunctionStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTIfStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTLetStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTReturnStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/lexer/Lexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/ParserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/TokenType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/ReturnContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTExpressionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTExpressionStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTFunctionStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTFunctionStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTIfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTIfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTLetStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTLetStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTReturnStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTReturnStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +42,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -95,6 +66,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -126,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691433276174</updated>
-      <workItem from="1691433277269" duration="22136000" />
+      <workItem from="1691433277269" duration="24512000" />
     </task>
     <servers />
   </component>

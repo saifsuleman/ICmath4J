@@ -14,12 +14,12 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
     }
 
     @Override
-    public String acceptLetStatement(ASTLetStatement statement) {
+    public String visitLetStatement(ASTLetStatement statement) {
         return "(assign " + statement.identifier() + " = " + statement.value().accept(this) + ")";
     }
 
     @Override
-    public String acceptBlockStatement(ASTBlockStatement statement) {
+    public String visitBlockStatement(ASTBlockStatement statement) {
         StringBuilder builder = new StringBuilder();
         builder.append("(block ");
         for (IStatementNode node : statement.statements()) {
@@ -30,12 +30,12 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
     }
 
     @Override
-    public String acceptExpressionStatement(ASTExpressionStatement statement) {
+    public String visitExpressionStatement(ASTExpressionStatement statement) {
         return parenthesize(";", statement.node());
     }
 
     @Override
-    public String acceptFunctionStatement(ASTFunctionStatement statement) {
+    public String visitFunctionStatement(ASTFunctionStatement statement) {
         StringBuilder builder = new StringBuilder();
         builder.append("(function ").append(statement.name()).append("(");
         for (String param : statement.parameters()) {
@@ -57,12 +57,12 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
     }
 
     @Override
-    public String acceptIfStatement(ASTIfStatement statement) {
+    public String visitIfStatement(ASTIfStatement statement) {
         return "(if " + statement.condition().accept(this) + " " + statement.thenBranch().accept(this) + ")";
     }
 
     @Override
-    public String acceptReturnStatement(ASTReturnStatement statement) {
+    public String visitReturnStatement(ASTReturnStatement statement) {
         return "(return " + statement.node().accept(this) + ")";
     }
 

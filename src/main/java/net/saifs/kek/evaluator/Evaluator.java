@@ -38,32 +38,32 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
     }
 
     @Override
-    public Void acceptLetStatement(ASTLetStatement statement) {
+    public Void visitLetStatement(ASTLetStatement statement) {
         return null;
     }
 
     @Override
-    public Void acceptBlockStatement(ASTBlockStatement statement) {
+    public Void visitBlockStatement(ASTBlockStatement statement) {
         return null;
     }
 
     @Override
-    public Void acceptExpressionStatement(ASTExpressionStatement statement) {
+    public Void visitExpressionStatement(ASTExpressionStatement statement) {
         return null;
     }
 
     @Override
-    public Void acceptFunctionStatement(ASTFunctionStatement statement) {
+    public Void visitFunctionStatement(ASTFunctionStatement statement) {
         return null;
     }
 
     @Override
-    public Void acceptIfStatement(ASTIfStatement statement) {
+    public Void visitIfStatement(ASTIfStatement statement) {
         return null;
     }
 
     @Override
-    public Void acceptReturnStatement(ASTReturnStatement statement) {
+    public Void visitReturnStatement(ASTReturnStatement statement) {
         return null;
     }
 }

@@ -8,6 +8,6 @@ import java.util.List;
 public record ASTBlockStatement(List<IStatementNode> statements) implements IStatementNode {
     @Override
     public <R> R accept(StatementVisitor<R> visitor) {
-        return visitor.acceptBlockStatement(this);
+        return visitor.visitBlockStatement(this);
     }
 }

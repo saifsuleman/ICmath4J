@@ -7,6 +7,6 @@ import net.saifs.kek.ast.internal.visitor.StatementVisitor;
 public record ASTReturnStatement(IExpressionNode node) implements IStatementNode {
     @Override
     public <R> R accept(StatementVisitor<R> visitor) {
-        return visitor.acceptReturnStatement(this);
+        return visitor.visitReturnStatement(this);
     }
 }
