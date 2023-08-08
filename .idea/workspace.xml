@@ -5,25 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfe6262-b636-420e-9caf-227d7114e2f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/statement/ASTWhileStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/program.kek" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTAssignNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTAssignNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTBinaryNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTBinaryNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTCallNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTCallNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTIdentifierNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTIdentifierNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTUnaryNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTUnaryNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTValueNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTValueNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/BinaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/BinaryOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/UnaryOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/operation/UnaryOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/StatementVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Function.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/TokenType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,20 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Kek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="net.saifs.kek.Kek" />

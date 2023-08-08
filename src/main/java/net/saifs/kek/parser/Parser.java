@@ -21,6 +21,25 @@ public class Parser {
         this.tokens = tokens;
     }
 
+    public Token nibble(TokenType...types) {
+        if (this.cursor >= this.tokens.size()) {
+            return null;
+        }
+
+        Token token = this.tokens.get(cursor);
+
+        if (token == null) {
+            return null;
+        }
+
+        if (!List.of(types).contains(token.type())) {
+            return null;
+        }
+
+        this.cursor++;
+        return token;
+    }
+
     public Token eat(TokenType... types) {
         Token token = this.tokens.get(cursor);
 
@@ -98,7 +117,7 @@ public class Parser {
         Token identifier = this.eat(TokenType.IDENT);
         this.eat(TokenType.EQ);
         IExpressionNode expression = this.expression();
-        this.eat(TokenType.SEMICOLON);
+        this.nibble(TokenType.SEMICOLON);
         return new ASTLetStatement(identifier.literal(), expression);
     }
 
@@ -119,7 +138,7 @@ public class Parser {
     private ASTReturnStatement returnStatement() {
         eat(TokenType.RETURN);
         IExpressionNode expression = expression();
-        eat(TokenType.SEMICOLON);
+        nibble(TokenType.SEMICOLON);
         return new ASTReturnStatement(expression);
     }
 
@@ -151,7 +170,7 @@ public class Parser {
 
     private ASTExpressionStatement expressionStatement() {
         IExpressionNode expression = expression();
-        eat(TokenType.SEMICOLON);
+        nibble(TokenType.SEMICOLON);
         return new ASTExpressionStatement(expression);
     }
 
