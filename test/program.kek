@@ -1,14 +1,2 @@
-fun fib(n) {
-    if (n <= 1) {
-        return n;
-    }
-
-    return fib(n - 1) + fib(n - 2);
-}
-
-let i = 1;
-while (i <= 10) {
-    let n = fib(i);
-    print("The fibonacci number for " + string(i) + " is: " + string(n));
-    i = i + 1;
-}
+let ret = map()
+print(ret.containsKey("thing"))

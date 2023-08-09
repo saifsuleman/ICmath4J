@@ -9,4 +9,5 @@ public interface ExpressionVisitor<R> {
     R visitCall(ASTCallNode node);
     R visitIdentifier(ASTIdentifierNode node);
     R visitAssignment(ASTAssignNode node);
+    R visitGetter(ASTGetterNode node);
 }

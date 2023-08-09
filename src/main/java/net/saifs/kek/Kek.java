@@ -33,4 +33,16 @@ public class Kek {
         var evaluator = new Evaluator();
         evaluator.executeProgram(statements);
     }
+
+//    public static void main(String[] args) {
+//        var lexer = new Lexer();
+//        lexer.read("print 'hello world'");
+//        List<Token> tokens = new ArrayList<>();
+//        Token token;
+//        while ((token = lexer.next()) != null) {
+//            tokens.add(token);
+//        }
+//        var program = new Parser(tokens).parse();
+//        System.out.println(program);
+//    }
 }

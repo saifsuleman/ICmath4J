@@ -32,7 +32,7 @@ public enum TokenType {
     LESS(Pattern.compile("^<(?!=)")),
     GREATER_EQ(Pattern.compile("^>=")),
     LESS_EQ(Pattern.compile("^<=")),
-    TRUE, FALSE, AND, OR, FUN, IF, NIL, RETURN, LET, WHILE, FOR, ELSE
+    TRUE, FALSE, AND, OR, FUN, IF, NIL, RETURN, LET, WHILE, FOR, ELSE, NEW
     ;
 
     public static final Map<String, TokenType> keywords = new HashMap<>();

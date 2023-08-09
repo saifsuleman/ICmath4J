@@ -1,6 +1,15 @@
 package net.saifs.kek.evaluator;
 
+import net.saifs.kek.ast.expression.ASTGetterNode;
+import net.saifs.kek.ast.expression.ASTIdentifierNode;
+import net.saifs.kek.ast.internal.IExpressionNode;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Environment {
@@ -26,6 +35,70 @@ public class Environment {
         }
 
         throw new RuntimeException("undefined variable: " + key);
+    }
+
+    private Object reflectionGet(Object object, String key) throws IllegalAccessException {
+        Class<?> clazz = object.getClass();
+
+        Field[] fields = clazz.getFields();
+        Method[] methods = clazz.getMethods();
+
+        for (Field field : fields) {
+            if (field.getName().equals(key)) {
+                field.setAccessible(true);
+                return field.get(object);
+            }
+        }
+
+        for (Method method : methods) {
+            if (method.getName().equals(key)) {
+                method.setAccessible(true);
+                return new Callable() {
+                    @Override
+                    public int arity() {
+                        return method.getParameterCount();
+                    }
+
+                    @Override
+                    public Object call(Evaluator evaluator, List<Object> arguments) {
+                        try {
+                            return method.invoke(object, arguments.toArray());
+                        } catch (IllegalAccessException | InvocationTargetException e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    }
+                };
+            }
+        }
+
+        return null;
+    }
+
+    public Object get(IExpressionNode node) {
+        if (node instanceof ASTIdentifierNode ident) {
+            String key = ident.identifier();
+            return this.get(key);
+        }
+
+        if (node instanceof ASTGetterNode getter) {
+            if (getter.parent() == null) {
+                return this.get(getter.key());
+            }
+
+            Object parent = get(getter.parent());
+            String key = getter.key();
+            Object ret = null;
+            try {
+                ret = reflectionGet(parent, key);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("doing reflection get on " + parent.getClass().getName() + " with key " + key + " and returning: " + ret);
+            return ret;
+        }
+
+        return null;
     }
 
     public void assign(String key, Object value) {

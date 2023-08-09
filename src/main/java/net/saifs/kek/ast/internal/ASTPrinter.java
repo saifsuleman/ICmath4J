@@ -99,7 +99,7 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
 
     @Override
     public String visitCall(ASTCallNode node) {
-        return "(call " + node.function() + "(" + node.args().stream().map(arg -> arg.accept(this)).collect(Collectors.joining()) + "))";
+        return "(call " + node.parent() + "(" + node.args().stream().map(arg -> arg.accept(this)).collect(Collectors.joining()) + "))";
     }
 
     @Override
@@ -109,6 +109,11 @@ public class ASTPrinter implements StatementVisitor<String>, ExpressionVisitor<S
 
     @Override
     public String visitAssignment(ASTAssignNode node) {
+        return null;
+    }
+
+    @Override
+    public String visitGetter(ASTGetterNode node) {
         return null;
     }
 }

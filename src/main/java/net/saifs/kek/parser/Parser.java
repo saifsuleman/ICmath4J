@@ -267,35 +267,58 @@ public class Parser {
     }
 
     private IExpressionNode call() {
-        IExpressionNode callee = this.primary();
+        IExpressionNode callee = this.getter();
 
-        if (callee instanceof ASTIdentifierNode identifier) {
-            if (this.is(TokenType.NUMBER, TokenType.IDENT)) {
-                return new ASTCallNode(identifier.identifier(), List.of(this.call()));
-            }
+        ASTGetterNode getter;
+        if (callee instanceof ASTIdentifierNode ident) {
+            getter = new ASTGetterNode(null, ident.identifier());
+        } else if (callee instanceof ASTGetterNode getterNode) {
+            getter = getterNode;
+        } else {
+            return callee;
+        }
 
-            if (this.is(TokenType.LBRACKET)) {
-                this.eat(TokenType.LBRACKET);
-                List<IExpressionNode> args = new ArrayList<>();
+        if (this.is(TokenType.NUMBER, TokenType.IDENT, TokenType.STRING, TokenType.TRUE, TokenType.FALSE, TokenType.NIL)) {
+            return new ASTCallNode(getter, List.of(this.call()));
+        }
 
-                if (this.is(TokenType.RBRACKET)) {
-                    this.eat(TokenType.RBRACKET);
-                    return new ASTCallNode(identifier.identifier(), args);
-                }
+        if (this.is(TokenType.LBRACKET)) {
+            this.eat(TokenType.LBRACKET);
+            List<IExpressionNode> args = new ArrayList<>();
 
-                args.add(this.expression());
-
-                while (this.is(TokenType.COMMA)) {
-                    this.eat(TokenType.COMMA);
-                    args.add(this.expression());
-                }
-
+            if (this.is(TokenType.RBRACKET)) {
                 this.eat(TokenType.RBRACKET);
-                return new ASTCallNode(identifier.identifier(), args);
+                return new ASTCallNode(getter, args);
             }
+
+            args.add(this.expression());
+
+            while (this.is(TokenType.COMMA)) {
+                this.eat(TokenType.COMMA);
+                args.add(this.expression());
+            }
+
+            this.eat(TokenType.RBRACKET);
+            return new ASTCallNode(getter, args);
         }
 
         return callee;
+    }
+
+    private IExpressionNode getter() {
+        if (!this.is(TokenType.IDENT)) {
+            return primary();
+        }
+
+        Token token = this.eat(TokenType.IDENT);
+        IExpressionNode node = new ASTIdentifierNode(token.literal());
+
+        while (this.is(TokenType.DOT)) {
+            eat(TokenType.DOT);
+            node = new ASTGetterNode(node, eat(TokenType.IDENT).literal());
+        }
+
+        return node;
     }
 
     private IExpressionNode primary() {

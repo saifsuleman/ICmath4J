@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfe6262-b636-420e-9caf-227d7114e2f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTGetterNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/Kek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTCallNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/expression/ASTCallNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/ASTPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/ExpressionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/ast/internal/visitor/ExpressionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/evaluator/Evaluator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/saifs/kek/token/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/program.kek" beforeDir="false" afterPath="$PROJECT_DIR$/test/program.kek" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +101,8 @@
       <option name="presentableId" value="Default" />
       <updated>1691433276174</updated>
       <workItem from="1691433277269" duration="32754000" />
+      <workItem from="1691520039774" duration="3361000" />
+      <workItem from="1691526934396" duration="766000" />
     </task>
     <servers />
   </component>

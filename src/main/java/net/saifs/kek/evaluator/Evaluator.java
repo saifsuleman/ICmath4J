@@ -9,39 +9,44 @@ import net.saifs.kek.ast.statement.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Object> {
     private Environment environment;
 
     public Evaluator() {
         this.environment = new Environment();
-        this.environment.define("print", new Callable() {
+        procedure("print", 1, args -> System.out.println(args.get(0)));
+        procedure("say", 1, args -> System.out.println(args.get(0)));
+        function("time", 0, args -> (double) System.currentTimeMillis());
+        function("string", 1, args -> args.get(0).toString());
+        function("number", 1, args -> Double.valueOf((String)args.get(0)));
+        Map<String, Object> map = Map.of("key", 125);
+        function("map", 0, args -> map);
+    }
+
+    public void function(String id, int arity, java.util.function.Function<List<Object>, Object> function) {
+        this.environment.define(id, new Callable() {
             @Override
             public int arity() {
-                return 1;
+                return arity;
             }
 
             @Override
             public Object call(Evaluator evaluator, List<Object> arguments) {
-                System.out.println(arguments.get(0));
-                return null;
-            }
-        });
-
-        this.environment.define("string", new Callable() {
-            @Override
-            public int arity() {
-                return 1;
-            }
-
-            @Override
-            public Object call(Evaluator evaluator, List<Object> arguments) {
-                return arguments.get(0).toString();
+                return function.apply(arguments);
             }
         });
     }
 
+    public void procedure(String id, int arity, Consumer<List<Object>> function) {
+        this.function(id, arity, arguments -> {
+            function.accept(arguments);
+            return null;
+        });
+    }
 
     public void executeProgram(List<IStatementNode> statements) {
         for (IStatementNode statement : statements) {
@@ -163,8 +168,7 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
 
     @Override
     public Object visitCall(ASTCallNode node) {
-        Object callee = this.environment.get(node.function());
-
+        Object callee = this.environment.get(node.parent());
         List<Object> arguments = new ArrayList<>();
         for (IExpressionNode argument : node.args()) {
             arguments.add(this.evaluate(argument));
@@ -187,6 +191,11 @@ public class Evaluator implements StatementVisitor<Void>, ExpressionVisitor<Obje
         Object value = evaluate(node.value()); // TODO: for now, don't give a fuck about distances - need to implement it later though
         this.environment.assign(node.identifier(), value);
         return null;
+    }
+
+    @Override
+    public Object visitGetter(ASTGetterNode node) {
+        return this.environment.get(node);
     }
 
     @Override
